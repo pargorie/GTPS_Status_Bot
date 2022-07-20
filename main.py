@@ -27,7 +27,7 @@ client = commands.Bot(command_prefix = prefix, intents = intents)
 async def on_ready():
     print("Bot is ready.")
     channel = client.get_channel(993788813413462047)
-    em = discord.Embed(title="RichTopia",color=0x12d600, description="\n\n 🔴 Server is DOWN\n\n ⭐ Have fun everyone!\n\n\n\n\n")
+    em = discord.Embed(title="RichTopia",color=0x12d600, description="🔴 Server is DOWN\n🌙Be patience!")
     await channel.send(embed=em)
     myLoop.start()
 
