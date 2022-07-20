@@ -37,12 +37,6 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     print(f'{member} has joined a server.')
-    role = discord.utils.get(member.guild.roles, id=993194515336790060)
-    await member.add_roles(role)
-    em = discord.Embed(color=0x12d600, description=f"**Welcome {member.mention}, you're {len(list(member.guild.members))}!**")
-    em.set_footer(text=f"{member.guild}", icon_url=f"{member.guild.icon_url}")
-    em.set_image(url=f"{member.avatar_url}")
-    channel = client.get_channel(993419545236742195)
 
 
 
