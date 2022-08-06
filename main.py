@@ -3,13 +3,10 @@ try:
     import discord
     from discord.ext import commands
     import random
-    import time
-    import json
     from discord import *
     import subprocess
     import psutil
     from discord.ext import tasks
-    import asyncio
 except:
     os.system('pip install discord')
 
@@ -21,40 +18,25 @@ intents.members = True
 client = commands.Bot(command_prefix = prefix, intents = intents)
 
 
-
-
 @client.event
 async def on_ready():
     print("Bot is ready.")
-    channel = client.get_channel(993788813413462047)
+    channel = client.get_channel("YOU CHANNEL ID FOR STATUS CHANNEL'S ID HERE)
     em = discord.Embed(title="RichTopia",color=0x12d600, description="🔴 Server is DOWN\n🌙Be patience!")
     await channel.send(embed=em)
     myLoop.start()
-
-
-
-
-@client.event
-async def on_member_join(member):
-    print(f'{member} has joined a server.')
-
-
 
 @tasks.loop(seconds = 10) # repeat after every 10 seconds
 async def myLoop():
     channel = client.get_channel(993788813413462047)
     if "Fatih.exe" in (p.name() for p in psutil.process_iter()):
-        await client.change_presence(activity=discord.Game(name="🟢RichTopia UP!"))
+        await client.change_presence(activity=discord.Game(name="🟢Server is UP!"))
         em = discord.Embed(title="RichTopia\n━━━━━",color=0x12d600, description="🟢 Server is UP\n⭐Have fun everyone!")
         await channel.last_message.edit(embed=em)
     else:
-        await client.change_presence(activity=discord.Game(name="🔴RichTopia DOWN!"))
+        await client.change_presence(activity=discord.Game(name="🔴Server is DOWN!"))
         em = discord.Embed(title="RichTopia",color=0x12d600, description="🔴 Server is DOWN\n🌙Be patience!")
         await channel.last_message.edit(embed=em)
 
-@client.event
-async def on_member_remove(member):
-        print(f'{member} has left a server.')
 
-
-client.run("OTkzNzgzMjAyMDU5NjU3MjI2.G-dTQ_.5QGTihc-P1OLYaRbATxwJNnp3qBB-DUfe-66rU")
+client.run("YOUR BOT'S TOKEN HERE")
